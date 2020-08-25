@@ -20,9 +20,12 @@ namespace TameOfThrones
                     while (line != null)
                     {
                         string[] input = line.Split();
-                        var kingdom = southeros.FindKingdom(input[0]);
-                        spaceKingdom.SendMessage(kingdom, input[1]);
-                        line = reader.ReadLine();
+                        if (line.Length==2)
+                        {
+                            var kingdom = southeros.FindKingdom(input[0]);
+                            spaceKingdom.SendMessage(kingdom, input[1]);
+                            line = reader.ReadLine();
+                        }
                     }
                 }
                 bool isGorillaKingRuler = southeros.DecideRuler(spaceKingdom);
@@ -40,7 +43,7 @@ namespace TameOfThrones
             {
                 Console.WriteLine($"Exception Occurred. Message: {ex.Message}");
             }
-            Console.ReadLine();
+            //Console.ReadLine();
         }
     }
 }
