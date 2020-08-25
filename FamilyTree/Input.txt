@@ -1,0 +1,33 @@
+ADD_CHILD Chitra Aria Female
+GET_RELATIONSHIP Lavnya Maternal-Aunt
+GET_RELATIONSHIP Aria Siblings
+ADD_CHILD Pjali Srutak Male
+GET_RELATIONSHIP Pjali Son
+ADD_CHILD Asva Vani Female
+GET_RELATIONSHIP Vasa Siblings
+GET_RELATIONSHIP Atya Sister-In-Law
+GET_RELATIONSHIP Jnki Paternal-Uncle
+GET_RELATIONSHIP Jnki Paternal-Aunt
+GET_RELATIONSHIP Vyan Sister-In-Law
+GET_RELATIONSHIP Chit Sister-In-Law
+GET_RELATIONSHIP Vyan Brother-In-Law
+GET_RELATIONSHIP Aras Brother-In-Law
+GET_RELATIONSHIP Vyan Daughter
+GET_RELATIONSHIP Satya Daughter
+GET_RELATIONSHIP Satya Son
+GET_RELATIONSHIP Vyan Son
+GET_RELATIONSHIP Atya Maternal-Uncle
+GET_RELATIONSHIP Yodhan Maternal-Aunt
+GET_RELATIONSHIP Yodhan Paternal-Aunt
+GET_RELATIONSHIP Dritha Sister-In-Law
+GET_RELATIONSHIP Shan Paternal-Aunt
+GET_RELATIONSHIP Lika Brother-In-Law
+GET_RELATIONSHIP Lika Sister-In-Law
+ADD_CHILD Anga Abc Female
+GET_RELATIONSHIP Chit Siblings
+ADD_CHILD Shan Abc Female
+GET_RELATIONSHIP Vila Siblings
+GET_RELATIONSHIP Arit Brother-In-Law
+GET_RELATIONSHIP Arit Siblings
+ADD_CHILD Jnki Vrsha Female
+GET_RELATIONSHIP Laki Siblings
