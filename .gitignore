@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/TameOfThrones/.vs/TameOfThrones
+/TameOfThrones/geektrust
+/TameOfThrones/TameOfThrones/obj/Debug/netcoreapp3.1
+/TameOfThrones/TameOfThrones/obj
+/Traffic/.vs/Traffic
+/Traffic/Traffic/bin/Debug/netcoreapp3.1
+/Traffic/Traffic/obj
