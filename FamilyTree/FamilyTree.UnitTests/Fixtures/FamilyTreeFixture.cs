@@ -1,46 +1,62 @@
 ﻿using FamilyTree.Entities;
 using FamilyTree.Enums;
-using FamilyTree.Utilities;
 using System;
-using System.IO;
 
-namespace FamilyTree
+namespace FamilyTree.UnitTests.Fixtures
 {
-    class Program
-    {        
-        static Kingdom Initialize()
+    public class FamilyTreeFixture : IDisposable
+    {
+        public Kingdom Kingdom;
+        public Person Chit;
+        public Person Yodhan;
+        public Person Vila;
+        public Person Dritha;
+        public Person Jaya;
+        public Person lika;
+        public Person vich, tritha,vasa;
+        public FamilyTreeFixture()
+        {
+            Kingdom = Initialize();
+        }
+
+        public void Dispose()
+        {
+            Kingdom = null;
+        }
+
+        private Kingdom Initialize()
         {
             var anga = new Person("Anga", Gender.Female, null, null);
             var shan = new Person("Shan", Gender.Male, null, null);
             anga.AddSpouse(shan);
             shan.AddSpouse(anga);
 
-            var chit = new Person("Chit", Gender.Male, shan, anga);
+            Chit = new Person("Chit", Gender.Male, shan, anga);
             var amba = new Person("Amba", Gender.Female, null, null);
-            chit.AddSpouse(amba);
-            amba.AddSpouse(chit);
-            var dritha = new Person("Dritha", Gender.Female, chit, amba);
-            var tritha = new Person("Tritha", Gender.Female, chit, amba);
-            var vritha = new Person("Vritha", Gender.Male, chit, amba);
-            var jaya = new Person("Jaya", Gender.Male, null, null);
-            dritha.AddSpouse(jaya);
-            jaya.AddSpouse(dritha);
-            var yodhan = new Person("Yodhan", Gender.Male, jaya, dritha);
-            dritha.AddChildren(yodhan);
-            amba.AddChildren(dritha);
+            Chit.AddSpouse(amba);
+            amba.AddSpouse(Chit);
+            Dritha = new Person("Dritha", Gender.Female, Chit, amba);
+            tritha = new Person("Tritha", Gender.Female, Chit, amba);
+            var vritha = new Person("Vritha", Gender.Male, Chit, amba);
+            Jaya = new Person("Jaya", Gender.Male, null, null);
+            Dritha.AddSpouse(Jaya);
+            Jaya.AddSpouse(Dritha);
+            Yodhan = new Person("Yodhan", Gender.Male, Jaya, Dritha);
+            Dritha.AddChildren(Yodhan);
+            amba.AddChildren(Dritha);
             amba.AddChildren(tritha);
             amba.AddChildren(vritha);
 
             var ish = new Person("Ish", Gender.Male, shan, anga);
 
-            var vich = new Person("Vich", Gender.Male, shan, anga);
-            var lika = new Person("Lika", Gender.Female, null, null);
+            vich = new Person("Vich", Gender.Male, shan, anga);
+            lika = new Person("Lika", Gender.Female, null, null);
             vich.AddSpouse(lika);
             lika.AddSpouse(vich);
-            var vila = new Person("Vila", Gender.Female, vich, lika);
+            Vila = new Person("Vila", Gender.Female, vich, lika);
             var chika = new Person("Chika", Gender.Female, vich, lika);
             lika.AddChildren(chika);
-            lika.AddChildren(vila);
+            lika.AddChildren(Vila);
 
             var aras = new Person("Aras", Gender.Male, shan, anga);
             var chitra = new Person("Chitra", Gender.Female, null, null);
@@ -70,7 +86,7 @@ namespace FamilyTree
             satya.AddChildren(asva);
             asva.AddSpouse(satvy);
             satvy.AddSpouse(asva);
-            var vasa = new Person("Vasa", Gender.Male, asva, satvy);
+            vasa = new Person("Vasa", Gender.Male, asva, satvy);
             satvy.AddChildren(vasa);
             var vyas = new Person("Vyas", Gender.Male, vyan, satya);
             var krpi = new Person("Krpi", Gender.Female, null, null);
@@ -83,47 +99,12 @@ namespace FamilyTree
             krpi.AddChildren(krithi);
 
             anga.AddChildren(ish);
-            anga.AddChildren(chit);
+            anga.AddChildren(Chit);
             anga.AddChildren(vich);
             anga.AddChildren(aras);
             anga.AddChildren(satya);
 
             return new Kingdom(shan, anga);
-        }
-        static void Main(string[] args)
-        {
-            var kingdom = Initialize();
-            var operation = new Operation(kingdom);
-            if (args.Length > 0)
-            {
-                try
-                {
-                    var fileName = args[0];
-                    using (var fileStream = new StreamReader(fileName))
-                    {
-                        string line = fileStream.ReadLine();
-                        while (line != null)
-                        {
-                            string[] arr = line.Split();
-                            if (arr.Length >= 3)
-                            {
-                                var output = operation.Perform(arr);
-                                Console.WriteLine(output);
-                                line = fileStream.ReadLine();
-                            }
-                        }
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine($"Exception occurred. Message:{ex.Message}");
-                }
-            }
-            else
-            {
-                Console.WriteLine("File Name not Provided!!");
-            }
-            
         }
     }
 }
