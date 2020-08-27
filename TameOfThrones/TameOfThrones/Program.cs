@@ -6,6 +6,7 @@ namespace TameOfThrones
 {
     class Program
     {
+        private static string NONE = "NONE";
         static void Main(string[] args)
         {
             var southeros = new Southeros();
@@ -31,7 +32,7 @@ namespace TameOfThrones
                 bool isGorillaKingRuler = southeros.DecideRuler(spaceKingdom);
                 if (!isGorillaKingRuler)
                 {
-                    Console.WriteLine("NONE");
+                    Console.WriteLine(NONE);
                 }
                 else
                 {
@@ -43,7 +44,6 @@ namespace TameOfThrones
             {
                 Console.WriteLine($"Exception Occurred. Message: {ex.Message}");
             }
-            //Console.ReadLine();
         }
     }
 }
