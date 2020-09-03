@@ -7,7 +7,7 @@ namespace TameOfThrones
     class Program
     {
         private static string NONE = "NONE";
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             var southeros = new Southeros();
             var spaceKingdom = southeros.FindKingdom(KingdomNames.SPACE);
@@ -21,12 +21,12 @@ namespace TameOfThrones
                     while (line != null)
                     {
                         string[] input = line.Split();
-                        if (line.Length==2)
+                        if (input.Length==2)
                         {
                             var kingdom = southeros.FindKingdom(input[0]);
                             spaceKingdom.SendMessage(kingdom, input[1]);
-                            line = reader.ReadLine();
                         }
+                        line = reader.ReadLine();
                     }
                 }
                 bool isGorillaKingRuler = southeros.DecideRuler(spaceKingdom);
