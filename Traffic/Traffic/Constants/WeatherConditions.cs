@@ -1,4 +1,4 @@
-﻿namespace Traffic.Entities
+﻿namespace Traffic.Constants
 {
     public class WeatherConditions
     {

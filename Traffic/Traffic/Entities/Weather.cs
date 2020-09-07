@@ -4,14 +4,30 @@ namespace Traffic.Entities
 {
     public class Weather
     {
-        public string WeatherConditions;
-        public double AffectsCratersBy;
+        private string _weatherConditions;
+        public double _affectsCratersBy;
         public List<Vehicle> UsableVehicles;
         public Weather(string weatherConditions, double affectsCratersBy)
         {
-            this.WeatherConditions = weatherConditions;
-            this.AffectsCratersBy = affectsCratersBy;
+            this._weatherConditions = weatherConditions;
+            this._affectsCratersBy = affectsCratersBy;
             this.UsableVehicles = new List<Vehicle>();
+        }
+
+        public string WeatherConditions
+        {
+            get
+            {
+                return _weatherConditions;
+            }
+        }
+
+        public double AffectsCratersBy
+        {
+            get
+            {
+                return _affectsCratersBy;
+            }
         }
 
         public void AddVehicle(Vehicle vehicle)

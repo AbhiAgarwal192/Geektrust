@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using Traffic.Constants;
 namespace Traffic.Entities
 {
     public class Calculator
@@ -25,10 +25,9 @@ namespace Traffic.Entities
             this.windy = new Weather(WeatherConditions.WINDY, 0);
             this.windy.AddVehicle(car);
             this.windy.AddVehicle(bike);
-            this.orbitTwo = new Orbit(20, 10,"ORBIT2");
             this.orbitOne = new Orbit(18, 20, "ORBIT1");
+            this.orbitTwo = new Orbit(20, 10,"ORBIT2");
         }
-
         public Orbit FastestRouteToReachDestination(string weatherConditions, double orbitOneSpeed, double orbitTwoSpeed, out Vehicle vehicle)
         {
             vehicle = null;
@@ -46,7 +45,7 @@ namespace Traffic.Entities
                 return this.orbitTwo;
             }
 
-            vehicle = Select(vehicle1, vehicle2);
+            vehicle = TieBreaker(vehicle1, vehicle2);
             return vehicle == vehicle1 ? orbitOne : orbitTwo;
         }
         public double TimeTakenToReachDestination(string weatherConditions, Orbit orbit, double speed, out Vehicle vehicle)
@@ -86,15 +85,14 @@ namespace Traffic.Entities
                 }
                 else if (totalTime == time)
                 {
-                    vehicle = Select(vehicle, usableVehicleList[i]);
+                    vehicle = TieBreaker(vehicle, usableVehicleList[i]);
                 }
             }
             return time;
         }
-
-        private Vehicle Select(Vehicle selectedVehicle, Vehicle newVehicle)
+        private Vehicle TieBreaker(Vehicle selectedVehicle, Vehicle newVehicle)
         {
-            if (selectedVehicle.VehicleType < newVehicle.VehicleType)
+            if (selectedVehicle.Type < newVehicle.Type)
             {
                 return selectedVehicle;                
             }

@@ -1,4 +1,5 @@
 ﻿using Traffic.Entities;
+using Traffic.Constants;
 
 namespace Traffic
 {
@@ -14,12 +15,11 @@ namespace Traffic
         {
             var orbit = this._calculator.FastestRouteToReachDestination(weatherConditions,orbitOneSpeed,orbitTwoSpeed,out Vehicle vehicle);
             string vehicleType = "TUKTUK";
-            if (vehicle.VehicleType == VehicleType.Bike)
+            if (vehicle.Type == VehicleType.Bike)
                 vehicleType = "BIKE";
-            else if (vehicle.VehicleType == VehicleType.Car)
+            else if (vehicle.Type == VehicleType.Car)
                 vehicleType = "CAR";
-            string output = $"{vehicleType} {orbit.Name}";
-            return output;
+            return $"{vehicleType} {orbit.Name}";
         }
     }
 }
