@@ -20,7 +20,7 @@ namespace TameOfThrones.Entities
         public string Emblem { get { return this._emblem; } }
         public void SendMessage(Kingdom kingdom , string message)
         {
-            if (kingdom.IsAlly(message))
+            if (kingdom!=null && !this._allies.Contains(kingdom) && kingdom.IsAlly(message))
             {
                 this._allies.Add(kingdom);
             }

@@ -20,12 +20,9 @@ namespace TameOfThrones
                     string line = reader.ReadLine();
                     while (line != null)
                     {
-                        string[] input = line.Split();
-                        if (input.Length==2)
-                        {
-                            var kingdom = southeros.FindKingdom(input[0]);
-                            spaceKingdom.SendMessage(kingdom, input[1]);
-                        }
+                        int index = line.IndexOf(' ');
+                        var kingdom = southeros.FindKingdom(line.Substring(0,index));
+                        spaceKingdom.SendMessage(kingdom, line.Substring(index+1));
                         line = reader.ReadLine();
                     }
                 }

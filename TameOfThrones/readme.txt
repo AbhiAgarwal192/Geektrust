@@ -1,4 +1,4 @@
-This solution is built on .net core 3.1.
+﻿This solution is built on .net core 3.1.
 To build the solution, run the below command:
 dotnet build -o geektrust.
 
@@ -18,3 +18,6 @@ RULER  ALLY_KINGDOM_1, ALLY_KINGDOM_N
 
 Assumptions:
 1) Only Gorilla King sends the message and wants to rule Southeros.
+2) A Kingdom can send message to the same kingdom more than once. 
+3) White space characters in message are treated as normal characters.
+4) Characters considered are a-z, A-Z and whitespace character.

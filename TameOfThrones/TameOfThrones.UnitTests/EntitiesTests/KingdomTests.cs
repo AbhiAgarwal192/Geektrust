@@ -42,5 +42,18 @@ namespace TameOfThrones.UnitTests.EntitiesTests
             kingdom.SendMessage(_kingdom, "ABC");
             Assert.True(kingdom.Allies.Count == 0);
         }
+
+        [Fact]
+        public void WhenAKingdomWantsToMakeAlliesAndSendsCorrectMessageToSameKingdomManyTimes_ThenAlliesCountShouldNotIncrease()
+        {
+            var kingdom = new Kingdom(KingdomNames.SPACE, Emblems.Gorilla);
+            kingdom.SendMessage(_kingdom, "ROZO");
+            Assert.True(kingdom.Allies.Count == 1);
+            Assert.Equal(_kingdom.Name, kingdom.Allies[0].Name);
+
+            kingdom.SendMessage(_kingdom, "ROZO");
+            Assert.True(kingdom.Allies.Count == 1);
+            Assert.Equal(_kingdom.Name, kingdom.Allies[0].Name);
+        }
     }
 }
