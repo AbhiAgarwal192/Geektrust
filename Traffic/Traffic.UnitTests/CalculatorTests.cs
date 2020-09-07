@@ -29,24 +29,28 @@ namespace Traffic.UnitTests
             Assert.Equal(vehicle, veh.Type);
         }
 
-        [Fact]
-        public void GiveOrbitOneTrafficSpeedsAndWeatherConditions_ThenReturnTheTimeTakenForThatOrbit()
+        [Theory]
+        [InlineData(WeatherConditions.SUNNY,VehicleType.TukTuk, 126)]
+        [InlineData(WeatherConditions.WINDY, VehicleType.Bike, 148)]
+        [InlineData(WeatherConditions.RAINY, VehicleType.TukTuk, 132)]
+        public void GiveOrbitOneTrafficSpeedsAndWeatherConditions_ThenReturnTheTimeTakenAndVehicleForThatOrbit(string weather, VehicleType vehicle, int time)
         {
-            var time = _calculator.TimeTakenToReachDestination(WeatherConditions.SUNNY,orbitOne,10,out Vehicle veh);
-            Assert.False(time == 0);
+            var t = _calculator.TimeTakenToReachDestination(weather, orbitOne,10,out Vehicle veh);
             Assert.NotNull(veh);
-            Assert.True(time == 126);
-            Assert.Equal(VehicleType.TukTuk, veh.Type);
+            Assert.True(time == t);
+            Assert.Equal(vehicle, veh.Type);
         }
 
-        [Fact]
-        public void GiveOrbitTwoTrafficSpeedsAndWeatherConditions_ThenReturnTheTimeTakenForThatOrbit()
+        [Theory]
+        [InlineData(WeatherConditions.SUNNY, VehicleType.TukTuk, 129)]
+        [InlineData(WeatherConditions.WINDY, VehicleType.Bike, 140)]
+        [InlineData(WeatherConditions.RAINY, VehicleType.TukTuk, 132)]
+        public void GiveOrbitTwoTrafficSpeedsAndWeatherConditions_ThenReturnTheTimeTakenAndVehicleForThatOrbit(string weather, VehicleType vehicle, int time)
         {
-            var time = _calculator.TimeTakenToReachDestination(WeatherConditions.SUNNY, orbitTwo, 10, out Vehicle veh);
-            Assert.False(time == 0);
+            var t = _calculator.TimeTakenToReachDestination(weather, orbitTwo, 10, out Vehicle veh);
             Assert.NotNull(veh);
-            Assert.True(time == 129);
-            Assert.Equal(VehicleType.TukTuk, veh.Type);
+            Assert.True(time == t);
+            Assert.Equal(vehicle, veh.Type);
         }
     }
 }
