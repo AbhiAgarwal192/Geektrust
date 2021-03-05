@@ -14,15 +14,20 @@ namespace Traffic
                 using (var reader = new StreamReader(fileName))
                 {
                     var line = reader.ReadLine();
-                    string[] input = line.Split();
-                    if (input.Length == 3)
+                    while (line!=null)
                     {
-                        var weather = input[0];
-                        var orbitOneTrafficSpeed = input[1];
-                        var orbitTwoTrafficSpeed = input[2];
-                        string result = kingShan.DecideVehicle(weather, Convert.ToDouble(orbitOneTrafficSpeed), Convert.ToDouble(orbitTwoTrafficSpeed));
-                        Console.WriteLine(result);
+                        string[] input = line.Split();
+                        if (input.Length == 3)
+                        {
+                            var weather = input[0];
+                            var orbitOneTrafficSpeed = input[1];
+                            var orbitTwoTrafficSpeed = input[2];
+                            string result = kingShan.DecideVehicle(weather, Convert.ToDouble(orbitOneTrafficSpeed), Convert.ToDouble(orbitTwoTrafficSpeed));
+                            Console.WriteLine(result);
+                        }
+                        line = reader.ReadLine();
                     }
+                    
                 }
             }
             catch (Exception ex)
