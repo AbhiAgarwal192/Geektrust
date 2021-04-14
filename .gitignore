@@ -21,3 +21,9 @@
 /Traffic/Traffic.UnitTests/obj
 /Traffic/Traffic.UnitTests/bin/Debug/netcoreapp3.1
 /Traffic/geektrust
+
+/War/.vs
+/War/War/bin
+/War/War/obj
+/War/War.UnitTests/bin
+/War/War.UnitTests/obj
