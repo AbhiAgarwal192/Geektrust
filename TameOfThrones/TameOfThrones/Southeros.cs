@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using TameOfThrones.Constants;
 using TameOfThrones.Entities;
 
@@ -64,6 +65,35 @@ namespace TameOfThrones
                 return false;
             }
             return true;
+        }
+
+        // tie
+        // ruler
+        public Kingdom DecideRuler()
+        {
+            //unique max allies value
+            // if two or more have max values then null;
+
+            int maxAllies = 0;
+            foreach (var kingdomName in this.map.Keys)
+            {
+                maxAllies = Math.Max(map[kingdomName].Allies.Count, maxAllies);
+            }
+
+            int count = 0;
+
+            Kingdom ruler = null;
+
+            foreach (var kingdomName in this.map.Keys)
+            {
+                if(map[kingdomName].Allies.Count == maxAllies)
+                {
+                    ruler = map[kingdomName];
+                    count++;
+                }
+            }
+
+            return count == 1 ? ruler : null;
         }
     }
 }
