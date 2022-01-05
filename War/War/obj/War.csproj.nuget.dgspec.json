@@ -1,21 +1,18 @@
 {
   "format": 1,
   "restore": {
-    "C:\\GitHub\\Geektrust\\War\\War\\War.csproj": {}
+    "C:\\Github\\Geektrust\\War\\War\\War.csproj": {}
   },
   "projects": {
-    "C:\\GitHub\\Geektrust\\War\\War\\War.csproj": {
+    "C:\\Github\\Geektrust\\War\\War\\War.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\GitHub\\Geektrust\\War\\War\\War.csproj",
-        "projectName": "War",
-        "projectPath": "C:\\GitHub\\Geektrust\\War\\War\\War.csproj",
+        "projectUniqueName": "C:\\Github\\Geektrust\\War\\War\\War.csproj",
+        "projectName": "geektrust",
+        "projectPath": "C:\\Github\\Geektrust\\War\\War\\War.csproj",
         "packagesPath": "C:\\Users\\abhi_agarwal\\.nuget\\packages\\",
-        "outputPath": "C:\\GitHub\\Geektrust\\War\\War\\obj\\",
+        "outputPath": "C:\\Github\\Geektrust\\War\\War\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
           "C:\\Users\\abhi_agarwal\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
@@ -24,13 +21,13 @@
           "netcoreapp3.1"
         ],
         "sources": {
-          "C:\\GitLab\\Dell.Identity.AuthorizationModule.Framework\\Dell.Identity.AuthorizationModule.Framework": {},
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "http://dcsartifacts.dell.com/artifactory/api/nuget/nuget-local": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://dcsartifacts.dell.com/artifactory/api/nuget/nuget": {}
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -42,6 +39,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -57,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }
